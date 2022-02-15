@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Medical Speed Coding</title>
+
+    <!-- Roboto font embed -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="Resources/CSS/style.css">
+  <body>
+
+    <header>
+      <h1> Podiatry Speed Coder</h1>
+    </header>
+
+    <div class="container" class="row">
+      <div class="column1">
+        <h2>Available Codes</h2>
+        <!-- Uncompelted Tasks -->
+        <input id="searchbar" onkeyup="search_medCodes()" type="text" name="search" placeholder="Search Codes...">
+        <ul class="codes" id="codes" ></ul>
+      </div>
+      <!-- Compelted tasks -->
+      <div class="column2">
+        <h2>Selected Codes</h2>
+        <ul class="codes" id="outputList"></ul>
+        <div class="container">
+          <button id="genCodes">
+            Generate Code List
+          </button>
+          <div class="popup" id="codesOutput">
+            <span class="popuptext" id="myPopup"></span>
+          </div>
+          <button id="clearList">
+            Clear List
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="Resources/JS/main.js"> </script>
+  </body>
+</html>
