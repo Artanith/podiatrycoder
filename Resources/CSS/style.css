@@ -293,4 +293,19 @@
 
   /*.medCodes{
     display: list-item;
-   }
+   } */
+
+#clipboardTextarea {
+  overflow: hidden;
+  max-height: 0px;
+  max-width: 0px;
+  resize: none;
+  border: none;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: -10;
+}
+#clipboardTextarea:focus {
+  outline: none;
+}

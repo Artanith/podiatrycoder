@@ -342,30 +342,37 @@ function removeItem(){
   parent.removeChild(item);
 };
 
-//Generate Code List from outputList on click
-function generateCodes(){
+var myTarget = document.getElementById("clipboardTextarea");
 
-  let span = document.getElementById('myPopup');
-  span.innerHTML = "";
-  //List all available codes
-  outputList.forEach((item) => {
-    let para = document.createElement('p');
-    para.innerText = item;
-    span.appendChild(para);
-  });
+function createListOutput() {
+  console.log('output fired')
+  var myListOutput = "";
+  for (var i = 0; i < outputList.length; i++) {
+    //check if list is NOT the last in the array, if last don't output a line break
+    if (i != outputList.length - 1) {
+      let lineItem = outputList[i] + "\n";
+      myListOutput = myListOutput + lineItem;
+    } else {
+      let lineItem = outputList[i];
+      myListOutput = myListOutput + lineItem;
+    }
+  }
+  myTarget.value = myListOutput;
+  myTarget.select();
+  myTarget.setSelectionRange(0, 99999); //for mobile
+  document.execCommand("copy");
+  console.log("Copied to clipboard"); //could respond with some visual feedback to user
+  alert("Copied to clipboard");
+}
 
-  span.classList.toggle("show");
-};
+document.getElementById("genCodes").addEventListener("click", createListOutput);
+
 
 //Clear Output List on Click
 function clearList(){
 outputList = [];
  document.getElementById('outputList').innerHTML = "";
 };
-
-//Generate Code List from outputList on click
-let gen = document.getElementById('genCodes');
-gen.addEventListener('click', generateCodes);
 
 //Clear Output List on Click
 let clear = document.getElementById('clearList');
